@@ -20,5 +20,9 @@ const showSchema = z.object({
 
 });
 
-
-module.exports = {signupSchema,loginSchema,showSchema};
+const bookingSchema = z.object({
+        showId:z.string() ,
+        seats: z.number()
+      
+})
+module.exports = {signupSchema,loginSchema,showSchema,bookingSchema};

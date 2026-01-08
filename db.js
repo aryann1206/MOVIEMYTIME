@@ -1,12 +1,18 @@
 
 const mongoose = require("mongoose");
+async function connectDB() {
+    try {
+      await mongoose.connect("mongodb+srv://100xmediasomething_db_user:cYsUiBMgrTJgBjr7@automationapp.varqofb.mongodb.net/todo-app-harkirat");
+      console.log("MongoDB connected successfully");
+    } catch (err) {
+      console.error("MongoDB connection error:", err);
+      process.exit(1);
+    }
+  }
+  
+  connectDB();
+  
 
-try {
-    mongoose.connect("")
-}
-catch (e) {
-
-}
 let UserSchema = new mongoose.Schema({
     username: String,
     email: { type: String, unique: true },
@@ -23,7 +29,7 @@ let ShowSchema = new mongoose.Schema({
     showTime: String,
     ticketPrice: Number,
     availableTickets: Number,
-    createdAt: {type :Date , default:Date.now}
+    createdAt: { type: Date, default: Date.now }
 }
 )
 
